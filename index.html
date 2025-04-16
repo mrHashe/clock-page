@@ -1,11 +1,36 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <title>Scannable Time Clock</title>
+    <style>
+      body {
+        font-family: monospace;
+        background-color: #111;
+        color: #0f0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        height: 100vh;
+        margin: 0;
+      }
+      #time {
+        font-size: 4em;
+      }
+    </style>
+  </head>
   <body>
-    <p id="time">Loading...</p>
+    <div id="time">Loading...</div>
     <script>
       const now = new Date();
-      const time = now.toLocaleTimeString('en-US', { hour12: false });
-      document.getElementById('time').textContent = time;
+      const hours = String(now.getHours()).padStart(2, '0');
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      const seconds = String(now.getSeconds()).padStart(2, '0');
+      const time = hours + ":" + minutes + ":" + seconds;
+      document.getElementById("time").textContent = time;
+
+      // Insert a scannable version
+      document.body.insertAdjacentHTML("beforeend", "<p id='scannable-time'>" + time + "</p>");
     </script>
   </body>
 </html>
