@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <p id="time">Loading...</p>
+    <script>
+      const now = new Date();
+      const time = now.toLocaleTimeString('en-US', { hour12: false });
+      document.getElementById('time').textContent = time;
+    </script>
+  </body>
+</html>
