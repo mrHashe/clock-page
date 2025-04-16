@@ -1,34 +1,11 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Current Time</title>
-    <style>
-      body {
-        font-family: monospace;
-        background-color: #111;
-        color: #0f0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-        margin: 0;
-        flex-direction: column;
-      }
-      #time {
-        font-size: 4em;
-      }
-    </style>
-  </head>
   <body>
-    <div id="time">Loading...</div>
+    <p id="time">Loading...</p>
     <script>
-      document.addEventListener("DOMContentLoaded", function() {
-        const now = new Date();
-        const hours = String(now.getHours()).padStart(2, '0');
-        const minutes = String(now.getMinutes()).padStart(2, '0');
-        const time = hours + ":" + minutes;
-        document.getElementById("time").textContent = time;
-      });
+      const now = new Date();
+      const time = now.toLocaleTimeString('en-US', { hour12: false });
+      document.getElementById('time').textContent = time;
     </script>
   </body>
 </html>
